@@ -1,40 +1,20 @@
 # Udagram Image Filtering Microservice
 
-## Tasks
+filteredimage?image_url=https://www.zillarules.com/-/media/images/zilla-na/us/blog-articles/myths-facts-about-bearded-dragon-care/bearded-dragon.jpg?h=350&w=350&la=en&hash=BB45C333590D6C0AF6E426FC419D6A3B224212BE
 
-### Setup Node Environment
+## Project URL on AWS
 
-You'll need to create a new node server. Open a new terminal within the project directory and run:
+http://banks-image-filter-dev.6ubqeyuha7.us-east-2.elasticbeanstalk.com/
 
-1. Initialize a new project: `npm i`
-2. run the development server with `npm run dev`
+## Project URL on AWS with image
 
-### Create a new endpoint in the server.ts file
+http://banks-image-filter-dev.6ubqeyuha7.us-east-2.elasticbeanstalk.com/filteredimage/?https://www.zillarules.com/-/media/images/zilla-na/us/blog-articles/myths-facts-about-bearded-dragon-care/bearded-dragon.jpg?h=350&w=350&la=en&hash=BB45C333590D6C0AF6E426FC419D6A3B224212BE
 
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
+## To run locally:
+- first run  <code>npm install</code>
+- then <code>npm run dev</code>
+- navigate to http://localhost:8082/ in your browser
 
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
-
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
-
-### Deploying your system
-
-Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
-
-## Stand Out (Optional)
-
-### Refactor the course RESTapi
-
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
-
-### Authentication
-
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
-
-### Custom Domain Name
-
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+## Local code links
+- http://localhost:8082/
+- Filtered Image: http://localhost:8082/filteredimage?image_url=https://www.zillarules.com/-/media/images/zilla-na/us/blog-articles/myths-facts-about-bearded-dragon-care/bearded-dragon.jpg?h=350&w=350&la=en&hash=BB45C333590D6C0AF6E426FC419D6A3B224212BE
