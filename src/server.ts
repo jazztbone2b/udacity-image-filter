@@ -13,8 +13,38 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
+  app.get('/filteredimage/', async (req, res) => {
+    const { image_url } = req.query;
+
+    console.log(image_url);
+    // no url is found
+    if (!image_url) {
+      res.status(400).send('Image url is required.')
+      return;
+    }
+
+    // filter image from url
+    const filteredImage = await filterImageFromURL(image_url);
+    console.log('HEEEEEEEEEYYYYYY');
+
+    try {
+      // send our filtered image to client
+      await res.status(200).sendFile(filteredImage, (err) => {
+        if (err) {
+          // error occurred while trying to process image
+          return res.status(500).send('Unable to process image.');
+        }
+
+        // delete any files stored
+        deleteLocalFiles([filteredImage]);
+      });
+    } catch (err) {
+      res.status(500).send('An unexpected error occurred.');
+    }
+  
+  });
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
-  // GET /filteredimage?image_url={{URL}}
+  // GET /filteredimage?image_url={{https://photos.app.goo.gl/vCHPeFk97DcLtu5Q6}}
   // endpoint to filter an image from a public url.
   // IT SHOULD
   //    1
@@ -37,7 +67,6 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     res.send("try GET /filteredimage?image_url={{}}")
   } );
   
-
   // Start the Server
   app.listen( port, () => {
       console.log( `server running http://localhost:${ port }` );
