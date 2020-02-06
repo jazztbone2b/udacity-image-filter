@@ -25,7 +25,6 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
     // filter image from url
     const filteredImage = await filterImageFromURL(image_url);
-    console.log('HEEEEEEEEEYYYYYY');
 
     try {
       // send our filtered image to client
