@@ -1,7 +1,5 @@
 # Udagram Image Filtering Microservice
 
-filteredimage?image_url=https://www.zillarules.com/-/media/images/zilla-na/us/blog-articles/myths-facts-about-bearded-dragon-care/bearded-dragon.jpg?h=350&w=350&la=en&hash=BB45C333590D6C0AF6E426FC419D6A3B224212BE
-
 ## Project URL on AWS
 
 http://banks-image-filter-dev.6ubqeyuha7.us-east-2.elasticbeanstalk.com/
